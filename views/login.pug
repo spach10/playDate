@@ -21,5 +21,34 @@ block content
         .row(style='margin-top: 15px;')
             .col-md-3
             .col-md-6
-                a#createUser(href='#', role='button', aria-pressed='true') Don't have an account?
+                // A tag trigger for modal
+                a#createUser(href='#', role='button', aria-pressed='true' data-toggle='modal', data-target='#createNewUserModal') Don't have an account?
+
+                // Modal
+                #createNewUserModal.modal.fade(tabindex='-1', role='dialog', aria-labelledby='exampleModalLabel', aria-hidden='true')
+                    .modal-dialog(role='document')
+                        .modal-content
+                            .modal-header
+                                h5#exampleModalLabel.modal-title Let's get started! :)
+                                button.close(type='button', data-dismiss='modal', aria-label='Close')
+                                    span(aria-hidden='true') ×
+                            .modal-body
+                                form.form-createUser(action='/login/createUser', method='POST')
+                                    label.sr-only(for='newFirstName') First name
+                                    input#newFirstName.form-control(type='text', placeholder='First name', name='firstName', required='', autofocus='')
+                                    label.sr-only(for='newLastName') First name
+                                    input#newLastName.form-control(type='text', placeholder='Last name', name='lastName', required='', autofocus='')
+                                    //label(for='newBirthday') Birthday
+                                    //input#newBirthday.form-control(type='date', placeholder='Birthday', required='')
+                                    label.sr-only(for='newEmail') Email address
+                                    input#newEmail.form-control(type='email', placeholder='Email address', name='username', required='', autofocus='')
+                                    label.sr-only(for='newPassword') Password
+                                    input#newPassword.form-control(type='password', placeholder='Password', name='password', required='')
+
+                                    input.btn.btn-primary.form-control(type='submit' value='Create User' style='margin-top: 10px;')
+
+                            //.modal-footer
+                            //    button.btn.btn-secondary(type='button', data-dismiss='modal') Close
+                            //    button.btn.btn-primary(type='button') Create user
+
             .col-md-3
