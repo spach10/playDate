@@ -1,12 +1,47 @@
 extends layout
 
 block content
+    style.
+        #login-header {
+            font-size: 55px;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        #inputEmail {
+            margin-bottom: 3px;
+        }
+
+        #signUp {
+            background-color: #FFC3AE;
+            padding: 20px;    
+            min-width: 115px;  
+            display: block;      
+            color: #933E98;
+            float: left;
+        }
+
+        #loginBtn {
+            background-color: #933E98;
+            padding: 20px;
+            min-width: 115px;
+            color: #FEC3B1;
+            float: right;
+        }
+
+        #createUser {
+            display: block;
+            text-align: center;
+            color: #933E98;
+        }
+
     .container
         .row
             .col-md-3
-            .col-md-6
+            .col-md-6.col-xs-12
+                h2#login-header.form-signin-heading #{title}
+                
                 form.form-signin
-                    h2.form-signin-heading #{title}
                     label.sr-only(for='inputEmail') Email address
                     input#inputEmail.form-control(type='email', placeholder='Email address', required='', autofocus='')
                     label.sr-only(for='inputPassword') Password
@@ -15,21 +50,24 @@ block content
                         label
                             input(type='checkbox', value='remember-me')
                             |  Remember me
-                    button.btn.btn-lg.btn-primary.btn-block(type='submit') Sign in
+                    
+                    // A tag trigger for modal
+                    a#signUp.btn.btn-lg(href='#', role='button', aria-pressed='true' data-toggle='modal', data-target='#createNewUserModal') Sign up
+                    button#loginBtn.btn.btn-lg(type='submit') Sign in
             .col-md-3
 
         .row(style='margin-top: 15px;')
-            .col-md-3
-            .col-md-6
+            .col-md-3.col-sm-3
+            .col-md-6.col-sm-6
                 // A tag trigger for modal
-                a#createUser(href='#', role='button', aria-pressed='true' data-toggle='modal', data-target='#createNewUserModal') Don't have an account?
+                a#createUser(href='#', role='button', aria-pressed='true' data-toggle='modal', data-target='#') Forgot your password?
 
-                // Modal
+                // Sign up modal
                 #createNewUserModal.modal.fade(tabindex='-1', role='dialog', aria-labelledby='exampleModalLabel', aria-hidden='true')
                     .modal-dialog(role='document')
                         .modal-content
                             .modal-header
-                                h5#exampleModalLabel.modal-title Let's get started! :)
+                                //- h5#exampleModalLabel.modal-title Let's get started! :)
                                 button.close(type='button', data-dismiss='modal', aria-label='Close')
                                     span(aria-hidden='true') ×
                             .modal-body
@@ -47,8 +85,5 @@ block content
 
                                     input.btn.btn-primary.form-control(type='submit' value='Create User' style='margin-top: 10px;')
 
-                            //.modal-footer
-                            //    button.btn.btn-secondary(type='button', data-dismiss='modal') Close
-                            //    button.btn.btn-primary(type='button') Create user
-
-            .col-md-3
+            .col-md-3.col-sm-3
+    

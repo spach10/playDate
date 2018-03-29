@@ -7,7 +7,7 @@ const jsonParser = bodyParser.json();
 
 /* GET login page. */
 router.get('/', function(req, res, next) {
-    res.render('login', { title: 'Please sign in' });
+    res.render('login', { title: 'Playdate' });
 });
 
 router.post('/createUser', jsonParser, (req, res) => {
