@@ -1,3 +1,4 @@
+
 const express = require('express');
 const bodyParser = require('body-parser');
 const UserModel = require('../repository/models/User');
@@ -6,10 +7,16 @@ const router = express.Router();
 const jsonParser = bodyParser.json();
 
 /* GET login page. */
-router.get('/', function(req, res, next) {
-    res.render('login', { title: 'Playdate' });
+router.get('/', (req, res, next) => {
+    res.render('authenticate/login', { title: 'Playdate' });
 });
 
+/* GET create user page. */
+router.get('/createUser', (req, res, next) => {
+    res.render('authenticate/create', {title: 'Create User'})
+});
+
+/* POST new user. */
 router.post('/createUser', jsonParser, (req, res) => {
     UserModel.create({
             username: req.body.username,
@@ -21,7 +28,7 @@ router.post('/createUser', jsonParser, (req, res) => {
         if (err) return err;
         // Saved!
 
-        res.send("inserted");   
+        res.redirect('/');   
 
     });
 });

@@ -1,0 +1,87 @@
+extends ../layout
+
+block content
+    style.
+        .row {
+            margin-left: -30px;
+            margin-right: -30px;
+        }
+
+        .btn,
+        #inputEmail,
+        #inputPassword {
+            border-radius: 10px;
+        }
+
+        #login-header {
+            font-size: 55px;
+            text-align: center;
+            margin-top: -20px;
+            margin-bottom: 50px;
+            color: white;
+        }
+
+        #inputEmail {
+            margin-bottom: 10px;
+            padding: 25px;
+        }
+
+        #inputPassword {
+            margin-bottom: 20px;
+            padding: 25px;            
+        }
+
+        #inputEmail::placeholder,
+        #inputPassword::placeholder {
+            color: #d7a4da;
+        }
+
+        #signUpBtn {
+            background-color: #FFC3AE;
+            padding: 20px;    
+            min-width: 130px;  
+            display: block;      
+            color: #933E98;
+            float: left;
+        }
+
+        #loginBtn {
+            background-color: #933E98;
+            padding: 20px;
+            min-width: 130px;
+            color: white;
+            float: right;
+        }
+
+        #forgotPassword {
+            display: block;
+            text-align: center;
+            color: #933E98;
+        }
+
+    .container
+        .row
+            .col-md-3
+            .col-md-6.col-xs-12
+                h2#login-header.form-signin-heading #{title}
+                
+                form.form-signin
+                    label.sr-only(for='inputEmail') Email address
+                    input#inputEmail.form-control(type='email', placeholder='Email address', required='', autofocus='')
+                    label.sr-only(for='inputPassword') Password
+                    input#inputPassword.form-control(type='password', placeholder='Password', required='')
+                    
+                    // A tag trigger for modal
+                    a#signUpBtn.btn.btn-lg(href='/authenticate/createuser') Sign up
+                    button#loginBtn.btn.btn-lg(type='submit') Sign in
+            .col-md-3
+
+        .row(style='margin-top: 30px;')
+            .col-md-3
+            .col-md-6.col-xs-12
+                // A tag trigger for modal
+                a#forgotPassword(href='#') Forgot your password?
+                p(style='color: white; text-align: center; margin-top: 30px; margin-bottom: 30px; font-weight: bold;') OR
+                a#loginWithFacebook.btn.btn-lg.btn-block.btn-primary(href='#')
+                    | Login via Facebook
+            .col-md-3

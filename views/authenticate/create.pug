@@ -1,0 +1,63 @@
+extends ../layout
+
+block content
+    style.
+        .row {
+            margin-left: -45px;
+            margin-right: -45px;
+        }
+
+        #cancelCreate {
+            color: #933E98;
+        }
+
+        #loginBtn {
+            background-color: #933E98;
+            border-color: #933E98;
+        }
+
+        #create-header {
+            font-size: 55px;
+            text-align: center;
+            margin-top: -20px;
+            margin-bottom: 50px;
+            color: white;
+        }
+
+        #fname,
+        #lname,
+        #inputEmail,
+        #inputPassword {
+            padding: 25px;
+            margin-bottom: 10px;
+        }
+
+        #cancelCreate {
+            background-color: #FFC3AE;
+            padding: 20px; 
+            display: block;      
+            color: #933E98;
+            float: left;
+        }
+
+        #nextBtn {
+            background-color: #933E98;
+            padding: 20px;
+            min-width: 171px;
+            color: white;
+            float: right;
+        }
+
+    .content
+        .row
+            .col-xs-12
+                h2#create-header.form-signin-heading #{title}
+
+                form(action="/authenticate/createuser", method="post")
+                    input#fname.form-control(type="text", name="fname" placeholder='First name', required='', autofocus='')
+                    input#lname.form-control(type="text", name="lname" placeholder='Last name', required='', autofocus='')
+                    input#inputEmail.form-control(type='email', placeholder='Email address', required='', autofocus='')
+                    input#inputPassword.form-control(type='password', placeholder='Password', required='', autofocus='')
+                    
+                    a#cancelCreate.btn.btn-lg(href='/authenticate') Sign in instead
+                    button#nextBtn.btn.btn-lg.btn-primary(type='submit') Next
