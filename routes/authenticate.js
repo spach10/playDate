@@ -21,8 +21,8 @@ router.post('/createUser', jsonParser, (req, res) => {
     UserModel.create({
             username: req.body.username,
             password: req.body.password,
-            firstName: req.body.firstName,
-            lastName: req.body.lastName
+            firstName: req.body.firstname,
+            lastName: req.body.lastname
         },
         (err, user) => {
         if (err) return err;

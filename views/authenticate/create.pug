@@ -54,10 +54,10 @@ block content
                 h2#create-header.form-signin-heading #{title}
 
                 form(action="/authenticate/createuser", method="post")
-                    input#fname.form-control(type="text", name="fname" placeholder='First name', required='', autofocus='')
-                    input#lname.form-control(type="text", name="lname" placeholder='Last name', required='', autofocus='')
-                    input#inputEmail.form-control(type='email', placeholder='Email address', required='', autofocus='')
-                    input#inputPassword.form-control(type='password', placeholder='Password', required='', autofocus='')
+                    input#fname.form-control(type="text", name="firstname", placeholder='First name', required='', autofocus='')
+                    input#lname.form-control(type="text", name="lastname", placeholder='Last name', required='', autofocus='')
+                    input#inputEmail.form-control(type='email', name='username', placeholder='Email address', required='', autofocus='')
+                    input#inputPassword.form-control(type='password', name='password', placeholder='Password', required='')
                     
                     a#cancelCreate.btn.btn-lg(href='/authenticate') Sign in instead
                     button#nextBtn.btn.btn-lg.btn-primary(type='submit') Next
