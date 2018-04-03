@@ -65,7 +65,7 @@ block content
             .col-md-6.col-xs-12
                 h2#login-header.form-signin-heading #{title}
                 
-                form.form-signin
+                form.form-signin(action='/' method='POST')
                     label.sr-only(for='inputEmail') Email address
                     input#inputEmail.form-control(type='email', placeholder='Email address', required='', autofocus='')
                     label.sr-only(for='inputPassword') Password

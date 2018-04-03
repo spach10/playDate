@@ -10,10 +10,22 @@ function Users(dbExec) {
         });
     }
 
+    users.authenticate = async (username, password) => {
+        return dbExec(async collection => {
+            return await collection.findOne({ username, password });
+        });
+    };
+
     users.exists = async (username) => {
         return dbExec(async collection => {
             const results = await collection.find({ username }).toArray();
             return results.length > 0;
+        });
+    }
+
+    users.getUsers = async () => {
+        return dbExec(async collection => {
+            return await collection.find().toArray();
         });
     }
 

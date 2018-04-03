@@ -53,7 +53,7 @@ block content
             .col-xs-12
                 h2#create-header.form-signin-heading #{title}
 
-                form(action="/authenticate/createuser", method="post")
+                form(action="/authenticate/createuser", method="POST")
                     input#fname.form-control(type="text", name="firstname", placeholder='First name', required='', autofocus='')
                     input#lname.form-control(type="text", name="lastname", placeholder='Last name', required='', autofocus='')
                     input#inputEmail.form-control(type='email', name='username', placeholder='Email address', required='', autofocus='')
