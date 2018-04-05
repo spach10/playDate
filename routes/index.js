@@ -5,18 +5,13 @@ const passport        = require('passport');
 const router          = express.Router();
 
 /* POST login.  */
-router.post('/', passport.authenticate('local', { successRedirect: '/' }), (req, res) => {
-  res.redirect('/');
-});
+router.post('/', passport.authenticate('local', { successRedirect: '/' }));
 
 /* GET home page. */
 router.get('/', (req, res) => {
-  // const user = req.session["passport"] ? req.session.passport.user : false;
-  // if (req.session.passport != 'undefined') {
-  //   console.log("test");
-  // }
-  if (!req.user)
-    res.redirect('back');
+  var sessionHasUser = req.hasOwnProperty('user');
+  if (!sessionHasUser)
+    res.redirect('/authenticate');
   else
     res.render('index', { title: 'Playdate' });
 });
