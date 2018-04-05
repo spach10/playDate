@@ -12,7 +12,8 @@ function Users(dbExec) {
 
     users.authenticate = async (username, password) => {
         return dbExec(async collection => {
-            return await collection.findOne({ username, password });
+            const results = await collection.find({ username, password }).toArray();
+            return results.length > 0;
         });
     };
 

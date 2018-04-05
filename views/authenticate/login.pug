@@ -65,11 +65,11 @@ block content
             .col-md-6.col-xs-12
                 h2#login-header.form-signin-heading #{title}
                 
-                form.form-signin(action='/' method='POST')
+                form.form-signin(action='/' method='post')
                     label.sr-only(for='inputEmail') Email address
-                    input#inputEmail.form-control(type='email', placeholder='Email address', required='', autofocus='')
+                    input#inputEmail.form-control(type='email', name='username', placeholder='Email address', required='')
                     label.sr-only(for='inputPassword') Password
-                    input#inputPassword.form-control(type='password', placeholder='Password', required='')
+                    input#inputPassword.form-control(type='password', name='password' placeholder='Password', required='')
                     
                     // A tag trigger for modal
                     a#signUpBtn.btn.btn-lg(href='/authenticate/createuser') Sign up
