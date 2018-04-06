@@ -45,8 +45,4 @@ router.get('/getUsers', async (req, res) => {
     res.send(await Users.getUsers());
 });
 
-// router.get('/deleteAllUsers', (req, res) => {
-//     
-// });
-
 module.exports = router;

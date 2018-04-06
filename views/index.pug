@@ -1,7 +1,35 @@
 extends layout
 
 block content
-  .container
-    h1 #{title}
+  style.
+    .navGlyphs {
+      float: right;
+      font-size: 25px;
+      color: white;
+    }
 
-    p Welcome to #{title}
+    #pageTitle {
+      float: left;
+      font-size: 25px;
+      color: white;
+    }
+
+    .container {
+      margin-left: -30px;
+      margin-right: -30px;
+    }
+
+  .container
+    .row
+      .col-md-4
+      .col-md-4.col-xs-12
+        div
+          span#pageTitle #{title}
+          i.navGlyphs(style="padding-left: 20px;").glyphicon.glyphicon-user
+          i.navGlyphs.glyphicon.glyphicon-envelope
+      .col-md-4
+    
+    .row
+
+
+      
